@@ -1,0 +1,20 @@
+{
+    "player_id": 223725953,
+    "@id": "https://api.chess.com/pub/player/pogiboydge",
+    "url": "https://www.chess.com/member/pogiboydge",
+    "username": "pogiboydge",
+    "followers": 2,
+    "country": "https://api.chess.com/pub/country/CA",
+    "last_online": 1676141508,
+    "joined": 1673456460,
+    "status": "basic",
+    "is_streamer": false,
+    "verified": false,
+    "league": "Silver",
+    "title": "OPTIONAL",
+    "name": "OPTIONAL", 
+    "avatar": "OPTIONAL", 
+    "location": "OPTIONAL"
+
+
+}
