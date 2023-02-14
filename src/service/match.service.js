@@ -11,3 +11,24 @@ export function isWin(searchedUser, match) {
         return match.black.result == 'win';
     }
 }
+
+// get matches from array of match JSON data
+export function getMatches(matchHistory) {
+    var rows = [];
+    for (const index in matchHistory) {
+        if (Object.hasOwnProperty.call(matchHistory, index)) {
+            const match = matchHistory[index];
+            rows.push(
+                {   
+                    id: index, 
+                    white: match.white.username, 
+                    black: match.black.username, 
+                    result: `${getResult(match.white.result)}-${getResult(match.black.result)}`, 
+                    gameType: match.time_class, 
+                    date: match.end_time 
+                }
+            );
+        }
+    }
+    return rows;
+}
