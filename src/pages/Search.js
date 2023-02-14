@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom"
 import { getUserMatchHistory, getUserProfile, getUserStats } from "../service/search.service";
 import User from "../components/Search/User";
-import MatchHistory from "../components/Search/MatchHistory";
+import MatchHistory from "../components/Search/Match/MatchHistory";
 import Stats from "../components/Search/Stats";
 import Grid from '@mui/material/Grid'; 
 
@@ -17,7 +17,7 @@ const Search = ({}) => {
     useEffect(() => {
         (async function() {
 
-           /*  const user = await getUserProfile(searchedUser);
+             const user = await getUserProfile(searchedUser);
             console.log(user);
             
             // only fetch for match history and stats if no error
@@ -25,7 +25,7 @@ const Search = ({}) => {
                 setUser(user);
                 setMatchHisory(await getUserMatchHistory(searchedUser));
                 setStats(await getUserStats(searchedUser));
-            } */
+            }  
 
         })();   
     }, [])
@@ -39,12 +39,12 @@ const Search = ({}) => {
                             <User user={user}/>
                         </Grid>
                         <Grid item>
-                            <Stats/>
+                            <Stats stats={stats}/>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={6}>
-                    <MatchHistory/>
+                    <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
                 </Grid>
             </Grid>
         </div>

@@ -1,25 +1,5 @@
 import axios from "axios";
-
-
-/*
-    ---- ---- Date helper functions ---- ----
-*/
-
-const today = new Date();
-
-// get month formatted as 01, 02, 03, etc.
-function getMonth() {
-    const month = today.getMonth() + 1;
-    switch (true) {
-        case (month < 10):
-            return `0${month}`;
-        default:
-            return `${month}`;
-    }
-}
-
-function getYear() { return `${today.getFullYear()}`; }
-
+import { getMonth, getYear } from "./app.service";
 
 /*
     ---- ---- Fetch data from chess api ---- ----
@@ -55,7 +35,7 @@ export async function getUserProfile(searchedUser) {
 
     const url = `${prefix}/${searchedUser}`;
             
-    const res = axios.get(url)
+    const res = await axios.get(url)
         .then(function (res) {
             return res.data;
         })
@@ -73,7 +53,7 @@ export async function getUserStats(searchedUser) {
 
     const url = `${prefix}/${searchedUser}/${statsEndpoint}`;
             
-    const res = axios.get(url)
+    const res = await axios.get(url)
         .then(function (res) {
             return res.data;
         })
@@ -82,5 +62,6 @@ export async function getUserStats(searchedUser) {
             // user does not exist, error
             return err.response.data;
         })
+        console.log(res);
     return res;
 }

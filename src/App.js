@@ -7,7 +7,7 @@ import Search from './pages/Search';
 const App = () => {
 
     return (
-        <div>
+        <div id='app'>
             <BrowserRouter>
                 <Routes>
                     <Route 
