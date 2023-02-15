@@ -2,18 +2,6 @@ body {
     background-color: #f0f0f0;
 }
 
-
-/*
-    ---- ---- ---- Error page ---- ---- ---- 
-*/
-#error-component-container {
-    text-align: center;
-}
-
-#error-img-logo {
-    width: 400px;
-
-}
 /*
     ---- ---- ---- Home page ---- ---- ---- 
 */
@@ -47,7 +35,22 @@ body {
     ---- ---- ---- Search page ---- ---- ---- 
 */
 
-
 #user-icon {
     width: 200px;
 }
+
+#user-ul { 
+    list-style: none;
+}
+
+/*
+    ---- ---- ---- Error page ---- ---- ---- 
+*/
+#error-component-container {
+    text-align: center;
+}
+
+#error-img-logo {
+    width: 400px;
+}
+

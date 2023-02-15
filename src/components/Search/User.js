@@ -10,7 +10,7 @@ const User = ({ user }) => {
                     <img id='user-icon' src={user.avatar ? user.avatar : default_icon} />
                 </Grid>
                 <Grid item>
-                    <ul>
+                    <ul className='user-ul'>
                         <li className='user-li'>
                             {user.username}{user.last_online ? `, last seen on ${(getDateStringify(user.last_online))}.` : ''}
                         </li>

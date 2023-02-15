@@ -21,6 +21,7 @@ const Search = () => {
     const [matchHistory, setMatchHisory] = useState("");
     const [stats, setStats] = useState("");
 
+    /*
     useEffect(() => {
         (async function() {
 
@@ -37,6 +38,25 @@ const Search = () => {
         })();   
     }, [])
 
+    */
+
+    // use sample data instead of fetching from API
+    useEffect(() => {
+        var request = new XMLHttpRequest();
+        request.open("GET", "./sample/matchHistory.json", false);
+        request.send(null)
+        var matchHistoryJSON = JSON.parse(request.responseText);
+        request.open("GET", "./sample/stats.json", false);
+        request.send(null)
+        var statsJSON = JSON.parse(request.responseText);
+        request.open("GET", "./sample/user.json", false);
+        request.send(null)
+        var userJSON = JSON.parse(request.responseText);
+        setUser(userJSON);
+        setMatchHisory(matchHistoryJSON);
+        setStats(statsJSON);
+
+    }, []);
     return user ? (
         <div id='search-page-container'>
             <Grid container spacing={2}>
