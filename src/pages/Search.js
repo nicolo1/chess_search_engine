@@ -5,19 +5,26 @@ import User from "../components/Search/User";
 import MatchHistory from "../components/Search/Match/MatchHistory";
 import Stats from "../components/Search/Stats";
 import Grid from '@mui/material/Grid'; 
+import Error from "./Error";
 
-const Search = ({}) => {
+const Search = () => {
     
     const [searchParams, setSearchParams] = useSearchParams();
+
+    // user input
     const searchedUser = searchParams.get('q');
+
+    // if user exists in API, store in stateful value
     const [user, setUser] = useState("");
+
+
     const [matchHistory, setMatchHisory] = useState("");
     const [stats, setStats] = useState("");
 
     useEffect(() => {
         (async function() {
 
-             const user = await getUserProfile(searchedUser);
+            const user = await getUserProfile(searchedUser);
             console.log(user);
             
             // only fetch for match history and stats if no error
@@ -30,7 +37,7 @@ const Search = ({}) => {
         })();   
     }, [])
 
-    return (
+    return user ? (
         <div id='search-page-container'>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
@@ -48,6 +55,9 @@ const Search = ({}) => {
                 </Grid>
             </Grid>
         </div>
+    ) : 
+    (
+        <Error error={'Oops! This user is not registered here - please check spelling... '}/>
     );
 }
 

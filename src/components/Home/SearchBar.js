@@ -23,14 +23,3 @@ const SearchBar = () => {
 }
 
 export default SearchBar;
-
-/*
-            <TextField
-                error
-                id='searchbar-textfield'
-                label="Error"
-                defaultValue="{query}"
-                helperText="Does not exist."
-                variant="standard"
-            />
-*/
