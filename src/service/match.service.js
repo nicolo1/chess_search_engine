@@ -1,3 +1,4 @@
+import { getDateStringify } from "./app.service";
 // get white numerical win/loss result
 export function getResult(result) {
     return result == 'win' ? 1 : 0;
@@ -25,7 +26,7 @@ export function getMatches(matchHistory) {
                     black: match.black.username, 
                     result: `${getResult(match.white.result)}-${getResult(match.black.result)}`, 
                     gameType: match.time_class, 
-                    date: match.end_time 
+                    date: getDateStringify(match.end_time) 
                 }
             );
         }

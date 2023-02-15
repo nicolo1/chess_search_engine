@@ -54,6 +54,11 @@ const MatchHistory = ({ matchHistory }) => {
                         rowsPerPageOptions={[5]}
                         disableSelectionOnClick
                         experimentalFeatures={{ newEditingApi: true }}
+                        initialState={{
+                            sorting: {
+                                sortModel: [{ field: 'date', sort: 'desc' }],
+                            },
+                        }}
                     />
                 </Box>
             </div>        
