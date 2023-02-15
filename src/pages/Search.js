@@ -57,21 +57,23 @@ const Search = () => {
         setStats(statsJSON);
 
     }, []);
+
+
     return user ? (
         <div id='search-page-container'>
             <Grid container spacing={2}>
-                <Grid item xs={6}>
-                    <Grid container spacing={2} direction='column'>
+                <Grid item xs={12}>
                         <Grid item>
                             <User user={user}/>
                         </Grid>
-                        <Grid item>
-                            <Stats stats={stats}/>
-                        </Grid>
-                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Stats stats={stats}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>

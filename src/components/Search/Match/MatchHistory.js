@@ -1,6 +1,6 @@
 
-import SquareIcon from '@mui/icons-material/Square';
 import Box from '@mui/material/Box';
+import { useSearchParams } from "react-router-dom"
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import { getDateStringify } from '../../../service/app.service';
@@ -13,6 +13,7 @@ const columns = [
         width: 150,
         sortable:false,
         disableColumnMenu: true,
+        cellClassName: 'match-history-user-cell',
     },
     {
         field: 'black',
@@ -20,6 +21,7 @@ const columns = [
         width: 150,
         sortable:false,
         disableColumnMenu: true,
+        cellClassName: 'match-history-user-cell',
       },
       {
         field: 'result',
@@ -46,6 +48,8 @@ const columns = [
   ];
 
 const MatchHistory = ({ searchedUser, matchHistory }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [rows, setRows] = useState([]);
     useEffect(() => {
         setRows(getMatches(matchHistory))
@@ -56,13 +60,11 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
             <div id='match-component-container'> 
                 <Box sx={{ 
                         height: 700, width: '100%',
-                        '.cold': {
-                            backgroundColor: '#b9d5ff91',
-                            color: '#1a3e72',
+                          '.currentUser': {
+                            fontWeight:'700'
                           },
-                          '.hot': {
-                            backgroundColor: '#ff943975',
-                            color: '#1a3e72',
+                          '.user:hover': {
+                            backgroundColor:'yellow'
                           },
                           '.win': {
                             backgroundColor: 'green',
@@ -78,7 +80,14 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
                           },
                     }}
                 >
+                    <h1 className='stats-list-heading'>Match History</h1>
                     <DataGrid
+                        sx={{
+                            ".match-history-user-cell:hover": {
+                                cursor: 'pointer',
+                                textDecoration:'underline'
+                            }
+                        }}
                         rows={rows}
                         columns={columns}
                         pageSize={10}
@@ -92,7 +101,7 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
                         }}
                         getCellClassName={(params) => {
                             if (params.field == 'white' || params.field == 'black') {
-                                return params.value.toLowerCase() == searchedUser.toLowerCase() ? 'hot' : 'cold';
+                                return params.value.toLowerCase() == searchedUser.toLowerCase() ? 'currentUser' : '';
                             }
                             if(params.field == 'result') {
                                 switch(params.value) {
@@ -106,6 +115,11 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
                             }
                             return '';
                           }}
+                        onCellClick = {(e) => {
+                            
+                            setSearchParams({"q":e.row[e.field]})
+                            window.location.reload();
+                        }}
                     />
                 </Box>
             </div>        

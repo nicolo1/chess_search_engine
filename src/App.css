@@ -1,5 +1,6 @@
 body { 
     background-color: #f0f0f0;
+    color:#464646;
 }
 
 /*
@@ -35,12 +36,30 @@ body {
     ---- ---- ---- Search page ---- ---- ---- 
 */
 
-#user-icon {
-    width: 200px;
+#search-page-container {
+    padding: 30px;
 }
 
-#user-ul { 
+#user-icon {
+    width: 250px;
+}
+
+.user-ul { 
     list-style: none;
+    padding-left: 0;
+}
+
+.user-li-header {
+    font-size: 40px;
+}
+
+.user-li-sub-header {
+    font-size: 12px;
+    color:#4c4c4c;
+}
+
+#user-span-header {
+    color:#191919
 }
 
 /*

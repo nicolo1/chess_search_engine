@@ -3,6 +3,7 @@
 */
 
 const today = new Date();
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 // get month formatted as 01, 02, 03, etc.
 export function getMonth() {
@@ -25,4 +26,8 @@ export function getDateStringify(timestamp) {
 // check if JSON object is empty
 export function isEmpty(obj) {
     return obj == null || typeof obj == 'undefined' || Object.keys(obj).length === 0;
+}
+
+export function getLongDateStringify(timestamp) {
+    return ((new Date(timestamp*1000)).toLocaleDateString("en-US", options))
 }
