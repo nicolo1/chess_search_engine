@@ -7,25 +7,32 @@ const Stats = ({ stats }) => {
     const rapid = () => {
         return (
                 <>
-                    <h1 className='stats-list-heading'>Chess Rapid</h1>
-                    <ul>
-                        <li className='stats-sub-heading'>Highest</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.chess_rapid ? stats.chess_rapid.best.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.chess_rapid ? getDateStringify(stats.chess_rapid.best.date) : ""}</li>
-                        </ul>
-                        <li className='stats-sub-heading'>Recent</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.chess_rapid ? stats.chess_rapid.last.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.chess_rapid ? getDateStringify(stats.chess_rapid.last.date) : ""}</li>
-                        </ul>
-                        <li className='stats-sub-heading'>Record</li>
-                        <ul>
-                            <li className='stats-win'>win {stats.chess_rapid ? stats.chess_rapid.record.win : ""}</li>
-                            <li className='stats-loss'>loss {stats.chess_rapid ? stats.chess_rapid.record.loss : ""}</li>
-                            <li className='stats-draw'>draw {stats.chess_rapid ? stats.chess_rapid.record.draw : ""}</li>
-                        </ul>
-                    </ul>
+                    <h3 className='stats-list-heading'></h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='stats-list-heading'>Rapid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='stats-sub-heading'>Highest</td>
+                                <td className='stats-info'><span className={'green'}>{stats.chess_rapid ? stats.chess_rapid.best.rating : ""}</span> ({stats.chess_rapid ? getDateStringify(stats.chess_rapid.best.date) : ""})</td>
+                            </tr>
+                            <tr>
+                                <td className='stats-sub-heading'>Recent</td>
+                                <td className='stats-info'>{stats.chess_rapid ? stats.chess_rapid.last.rating : ""} ({stats.chess_rapid ? getDateStringify(stats.chess_rapid.last.date) : ""})</td>
+                            </tr>
+                            <tr>
+                                <td className='stats-sub-heading'>W/D/L</td>
+                                <td className='stats-info'>
+                                    <span className={'green'}>{stats.chess_rapid ? stats.chess_rapid.record.win : ""}</span>/
+                                    <span className={'blue'}>{stats.chess_rapid ? stats.chess_rapid.record.draw : ""}</span>/
+                                    <span className={'red'}>{stats.chess_rapid ? stats.chess_rapid.record.loss : ""}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </>
           );
     }
@@ -33,83 +40,71 @@ const Stats = ({ stats }) => {
     const blitz = () => {
         return (
                 <>
-                    <h1 className='stats-list-heading'>Chess Blitz</h1>
-                    <ul>
-                        <li className='stats-sub-heading'>Highest</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.chess_blitz ? stats.chess_blitz.best.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.chess_blitz ? getDateStringify(stats.chess_blitz.best.date) : ""}</li>
-                        </ul>
-                        <li className='stats-sub-heading'>Recent</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.chess_blitz ? stats.chess_blitz.last.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.chess_blitz ? getDateStringify(stats.chess_blitz.last.date) : ""}</li>
-                        </ul>
-                        <li className='stats-sub-heading'>Record</li>
-                        <ul>
-                            <li className='stats-win'>win {stats.chess_blitz ? stats.chess_blitz.record.win : ""}</li>
-                            <li className='stats-loss'>loss {stats.chess_blitz ? stats.chess_blitz.record.loss : ""}</li>
-                            <li className='stats-draw'>draw {stats.chess_blitz ? stats.chess_blitz.record.draw : ""}</li>
-                        </ul>
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='stats-list-heading'>Blitz</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='stats-sub-heading'>Highest</td>
+                                <td className='stats-info'><span className={'green'}>{stats.chess_blitz ? stats.chess_blitz.best.rating : ""}</span> ({stats.chess_blitz ? getDateStringify(stats.chess_blitz.best.date) : ""})</td>
+                            </tr>
+                            <tr>
+                                <td className='stats-sub-heading'>Recent</td>
+                                <td className='stats-info'>{stats.chess_blitz ? stats.chess_blitz.last.rating : ""} ({stats.chess_blitz ? getDateStringify(stats.chess_blitz.last.date) : ""})</td>
+                            </tr>
+                            <tr>
+                                <td className='stats-sub-heading'>W/D/L</td>
+                                <td className='stats-info'>
+                                    <span className={'green'}>{stats.chess_blitz ? stats.chess_blitz.record.win : ""}</span>/
+                                    <span className={'blue'}>{stats.chess_blitz ? stats.chess_blitz.record.draw : ""}</span>/
+                                    <span className={'red'}>{stats.chess_blitz ? stats.chess_blitz.record.loss : ""}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </>
           );
     }
     
-    const tactics = () => {
+    const puzzles = () => {
         return (
                 <>
-                    <h1 className='stats-list-heading'>Tactics</h1>
-                    <ul>
-                    <li className='stats-sub-heading'>Highest</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.tactics ? stats.tactics.highest.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.tactics ? getDateStringify(stats.tactics.highest.date) : ""}</li>
-                        </ul>
-                        <li className='stats-sub-heading'>Lowest</li>
-                        <ul>
-                            <li className='stats-rating'>Rating {stats.tactics ? stats.tactics.lowest.rating : ""}</li>
-                            <li className='stats-date'>Date {stats.tactics ? getDateStringify(stats.tactics.lowest.date) : ""}</li>
-                        </ul>
-                    </ul>
-                </>
-          );
-    }
-     
-    
-    const puzzleRush = () => {
-        return (
-                <>
-                    <h1 className='stats-list-heading'>Puzzle Rush</h1>
-                    <ul>
-                    <li className='stats-sub-heading'>Best</li>
-                        <ul>
-                            <li className='stats-rating'>Total attempts {(stats.puzzle_rush) ? stats.puzzle_rush.best.total_attempts : ""}</li>
-                            <li className='stats-date'>Score {(stats.puzzle_rush) ? stats.puzzle_rush.best.score : ""}</li>
-                        </ul>
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='stats-list-heading'>Puzzles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='stats-sub-heading'>Highest</td>
+                                <td className='stats-info'><span className={'green'}>{stats.tactics ? stats.tactics.highest.rating : ""}</span> ({stats.tactics ? getDateStringify(stats.tactics.highest.date) : ""})</td>
+                            </tr>
+                            <tr>
+                                <td className='stats-sub-heading'>Lowest</td>
+                                <td className='stats-info'>{stats.tactics ? stats.tactics.lowest.rating : ""} ({stats.tactics ? getDateStringify(stats.tactics.lowest.date) : ""})</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </>
           );
     }
 
+
     if(stats) {
         return (  
             <div id='stats-component-container'> 
-            <h1 className='stats-main-heading'>Stats</h1>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        {!isEmpty(stats.chess_rapid) ? rapid() : ''}
-                    </Grid>
-                    <Grid item xs={6}>
-                        {!isEmpty(stats.chess_blitz) ? blitz() : ''}
-                    </Grid>
-                    <Grid item xs={6}>
-                        {!isEmpty(stats.tactics) ? tactics() : ''}
-                    </Grid>
-                    <Grid item xs={6}>
-                        {!isEmpty(stats.puzzle_rush) ? puzzleRush() : ''}
-                    </Grid>
-                </Grid>
+                <h1 className='main-heading'>Stats</h1>
+                {!isEmpty(stats.chess_rapid) ? rapid() : ''}
+                <br/>
+                <br/>
+                {!isEmpty(stats.chess_blitz) ? blitz() : ''}
+                <br/>
+                <br/>
+                {!isEmpty(stats.tactics) ? puzzles() : ''}
             </div>
         );
     }

@@ -3,6 +3,20 @@ body {
     color:#464646;
 }
 
+.main-heading { 
+    text-align: left;
+}
+
+.green {
+    color: #49963b;
+}
+.red {
+    color: #ca3431;
+}
+
+.blue {
+    color: #1268b5;
+}
 /*
     ---- ---- ---- Home page ---- ---- ---- 
 */
@@ -25,6 +39,7 @@ body {
 }
 
 #searchbar-textfield {
+    width:400px;
 }
 
 #searchbar-icon {
@@ -32,25 +47,72 @@ body {
 }
 
 
+
+@media only screen and (max-width: 400px) {
+    #home-img-logo { 
+        width: 250px;
+    }
+    #searchbar-textfield {
+        width:200px;
+    }
+}
+
 /*
     ---- ---- ---- Search page ---- ---- ---- 
 */
 
+#app {
+    overflow: hidden;
+    text-align: center;
+
+    width: 100%;
+
+}
 #search-page-container {
-    padding: 30px;
+    overflow: auto;  
+    display: inline-block;
+
+    height:1800px;
+    width:1200px;
 }
 
-#user-icon {
-    width: 250px;
+/*
+    User Component
+*/
+
+#user-component-container {
+    border-radius: 8px;
+    background-color: #d8d8d8;
+    text-align: left;
+    padding-top:14px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width:1200px;
+}
+
+#user-image-container {
+    float:left;
+}
+
+#user-image {
+    width: 200px;
+    filter: opacity(70%);
+}
+
+#user-icons-container {
+    padding-top: 70px;
+    text-align: center;
+    width:400px;
+}
+
+#user-country-image {
+    width:40px;
+    border-radius: 8px;
 }
 
 .user-ul { 
     list-style: none;
     padding-left: 0;
-}
-
-.user-li-header {
-    font-size: 40px;
 }
 
 .user-li-sub-header {
@@ -59,9 +121,53 @@ body {
 }
 
 #user-span-header {
-    color:#191919
+    font-size: 40px;
+    font-weight: 700;
+    color:#191919;
 }
 
+/*
+    Match History Component
+*/
+
+#match-component-container {
+    border-radius: 8px;
+    background-color: #d8d8d8;
+    height:800px;
+    padding-top:10px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-bottom: 80px;
+    margin-left:20px;
+}
+
+/* 
+    Stats Component
+*/
+
+#stats-component-container {
+    border-radius: 8px;
+    height:800px;
+    text-align: left;
+    background-color: #d8d8d8;
+    padding-top:10px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-bottom: 80px;
+}
+
+.stats-ul { 
+    list-style: none;
+
+}
+
+.stats-list-heading {
+    font-size: 18px;
+}
+
+.stats-info {
+    text-align: right;
+}
 /*
     ---- ---- ---- Error page ---- ---- ---- 
 */
@@ -70,6 +176,5 @@ body {
 }
 
 #error-img-logo {
-    width: 400px;
+    width: 300px;
 }
-

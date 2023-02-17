@@ -16,7 +16,6 @@ const SearchBar = () => {
                 label="Search"
                 variant="standard"
                 autoComplete='off'
-                sx={{ width: '400px' }}
             />
         </Box>
     </form>

@@ -61,21 +61,15 @@ const Search = () => {
 
     return user ? (
         <div id='search-page-container'>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                        <Grid item>
-                            <User user={user}/>
+                    <User user={user}/>
+                    <Grid container>
+                        <Grid item xs={3}>
+                            <Stats stats={stats}/>
                         </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <Stats stats={stats}/>
+                        <Grid item xs={9}>
+                            <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                        <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
-                    </Grid>
-                </Grid>
-            </Grid>
         </div>
     ) : 
     (
