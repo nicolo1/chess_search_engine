@@ -20,6 +20,7 @@ export function getYear() { return `${today.getFullYear()}`; }
 
 // get date as string from timestamp
 export function getDateStringify(timestamp) {
+    // todo: ignores timezone, date time not entirely accurate
     return (new Date(timestamp*1000)).toISOString().split("T")[0];
 }
 

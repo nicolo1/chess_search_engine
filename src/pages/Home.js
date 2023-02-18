@@ -6,7 +6,7 @@ const Home = () => {
         <div id='home-page-container'>
             <img id='home-img-logo' src={horse}/>
             <h1 id='home-title'> Chess Search Engine</h1>
-            <SearchBar/>
+            <SearchBar />
         </div>
     );
 }

@@ -5,6 +5,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import { getDateStringify } from '../../../service/app.service';
 import { getMatches } from '../../../service/match.service';
+import { createTheme } from '@mui/material/styles';
 
 const columns = [
     {
@@ -50,6 +51,7 @@ const columns = [
         },
         headerAlign: 'center',
         align:'center',
+        width:'200',
     },
     ];
 
@@ -71,19 +73,20 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
                                 fontWeight:'700'
                             },
                             '.win': {
-                                color: 'green',
+                                color: '#49963b',
                             },
                             '.loss': {
-                                color: 'red',
+                                color: '#ca3431',
                             },
                             '.draw': {
-                                color: 'blue',
+                                color: '#1268b5',
                             },
                     }}
                 >
                     <h1 className='main-heading'>Match History</h1>
                     <DataGrid
                         sx={{
+                            fontFamily: `'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen'`,
                             ".match-history-user-cell:hover": {
                                 cursor: 'pointer',
                                 textDecoration:'underline',

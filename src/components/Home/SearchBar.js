@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import TextField from '@mui/material/TextField';
 
-const SearchBar = () => {
+const SearchBar = ({size = 400}) => {
     return (
         <form action="/search">
         <Box id="searchbar-container" sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -16,6 +16,12 @@ const SearchBar = () => {
                 label="Search"
                 variant="standard"
                 autoComplete='off'
+
+                sx= {{ 
+                    width: `${size}px`,
+                }}
+                inputProps={{style: {fontSize: 14}}}
+                InputLabelProps={{style: {fontSize: 14, fontFamily: `'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen'`}}}
             />
         </Box>
     </form>

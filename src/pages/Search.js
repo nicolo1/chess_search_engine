@@ -6,22 +6,14 @@ import MatchHistory from "../components/Search/Match/MatchHistory";
 import Stats from "../components/Search/Stats";
 import Grid from '@mui/material/Grid'; 
 import Error from "./Error";
-
+  
 const Search = () => {
-    
     const [searchParams, setSearchParams] = useSearchParams();
-
-    // user input
-    const searchedUser = searchParams.get('q');
-
-    // if user exists in API, store in stateful value
-    const [user, setUser] = useState("");
-
-
+    const searchedUser = searchParams.get('q'); // user input
+    const [user, setUser] = useState(""); // user object from API
     const [matchHistory, setMatchHisory] = useState("");
     const [stats, setStats] = useState("");
 
-    /*
     useEffect(() => {
         (async function() {
 
@@ -38,8 +30,7 @@ const Search = () => {
         })();   
     }, [])
 
-    */
-
+    /*
     // use sample data instead of fetching from API
     useEffect(() => {
         var request = new XMLHttpRequest();
@@ -57,19 +48,27 @@ const Search = () => {
         setStats(statsJSON);
 
     }, []);
+    */
 
+    useEffect(() => {
+        if(stats && matchHistory) {
+        } else {
+            console.log('something is not loaded...')
+        }
+
+    }, [user,stats,matchHistory]);
 
     return user ? (
         <div id='search-page-container'>
-                    <User user={user}/>
-                    <Grid container>
-                        <Grid item xs={3}>
-                            <Stats stats={stats}/>
-                        </Grid>
-                        <Grid item xs={9}>
-                            <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
-                        </Grid>
-                    </Grid>
+            <User user={user}/>
+            <Grid container>
+                <Grid item xs={3}>
+                    <Stats stats={stats}/>
+                </Grid>
+                <Grid item xs={9}>
+                    <MatchHistory searchedUser={searchedUser} matchHistory={matchHistory}/>
+                </Grid>
+            </Grid>
         </div>
     ) : 
     (
