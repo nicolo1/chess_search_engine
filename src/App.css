@@ -32,8 +32,10 @@ body {
 */
 
 #home-page-container {
+    padding-bottom: 180px;
     text-align: center;
 }
+
 #home-title {
     margin-top: 0;
     font-weight: 400;
@@ -103,6 +105,7 @@ body {
 }
 
 #user-country-image {
+    padding-left: 10px;
     width: 40px;
     border-radius: 8px;
 }
@@ -179,9 +182,21 @@ body {
 */
 #error-component-container {
     padding: 8%;
+    padding-bottom: 200px;
     text-align: center;
 }
 
 #error-img-logo {
     width: 300px;
+}
+
+/*
+    ---- ---- ---- Footer ---- ---- ---- 
+*/
+
+.footer-container {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 12px;
 }

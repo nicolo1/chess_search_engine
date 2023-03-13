@@ -10,6 +10,7 @@ import MatchHistory from "../components/Search/Match/MatchHistory";
 import Stats from "../components/Search/Stats";
 import Grid from "@mui/material/Grid";
 import Error from "./Error";
+import Footer from "../components/Footer";
 
 const Search = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -36,26 +37,31 @@ const Search = () => {
     }, []);
 
     return user ? (
-        <div id="search-page-container">
-            <User user={user} />
-            <Grid container>
-                <Grid item xs={3}>
-                    <Stats stats={stats} />
+        <>
+            <div id="search-page-container">
+                <User user={user} />
+                <Grid container>
+                    <Grid item xs={3}>
+                        <Stats stats={stats} />
+                    </Grid>
+                    <Grid item xs={9}>
+                        <MatchHistory
+                            searchedUser={searchedUser}
+                            matchHistory={matchHistory}
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item xs={9}>
-                    <MatchHistory
-                        searchedUser={searchedUser}
-                        matchHistory={matchHistory}
-                    />
-                </Grid>
-            </Grid>
-        </div>
+            </div>
+            <Footer />
+        </>
     ) : error ? (
-        <Error
-            error={
-                "Oops! This user is not registered here - please check spelling... "
-            }
-        />
+        <>
+            <Error
+                error={
+                    "Oops! This user is not registered here - please check spelling... "
+                }
+            />
+        </>
     ) : (
         ""
     );
