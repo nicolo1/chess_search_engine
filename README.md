@@ -1,25 +1,13 @@
-## Available Scripts
+# Chess Search ENgine
 
-In the project directory, you can run:
+This is a chess search engine built with **React**. It allows users to search for details of a user signed up on **chess.com**.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To install and run the project, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1.  Clone the repository to your local machine.
+2.  Navigate to the project directory.
+3.  Run `npm i` to install the necessary dependencies.
+4.  Run `npm start` to start the development server.
+5.  Open `http://localhost:3000` in your web browser to view the application.
