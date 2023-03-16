@@ -1,6 +1,6 @@
 # Chess Search Engine
 
-This is a chess search engine built with **React**. It allows users to search for details of a user signed up on **chess.com**.
+This is a chess search engine built with **React**. It allows users to search for the details of a user signed up on **chess.com**.
 
 ## Installation
 
