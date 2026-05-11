@@ -1,6 +1,9 @@
+/* ============================================================
+   GLOBAL LAYOUT
+   ============================================================ */
 body {
-    background-color: #f0f0f0;
-    color: #464646;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
 }
 
 #root {
@@ -13,37 +16,64 @@ body {
     width: 100%;
 }
 
+/* ============================================================
+   SEMANTIC COLOR UTILITIES
+   ============================================================ */
 .main-heading {
     text-align: left;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-top: 0;
 }
 
-.green {
-    color: #49963b;
-}
-.red {
-    color: #ca3431;
-}
+.green { color: var(--color-success); font-weight: 500; }
+.red   { color: var(--color-danger);  font-weight: 500; }
+.blue  { color: var(--color-info);    font-weight: 500; }
 
-.blue {
-    color: #1268b5;
-}
-/*
-    ---- ---- ---- Home page ---- ---- ---- 
-*/
-
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
 #home-page-container {
     padding-bottom: 180px;
     text-align: center;
+    min-height: 80vh;
+    background: var(--home-gradient);
+    transition: background var(--transition-slow);
 }
 
 #home-title {
     margin-top: 0;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* Accent bar under the title */
+#home-title::after {
+    content: '';
+    display: block;
+    margin: 8px auto 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    transition: background-color var(--transition);
 }
 
 #home-img-logo {
     padding-top: 5%;
     width: 350px;
+    transition:
+        filter var(--transition),
+        transform var(--transition-slow);
+}
+
+#home-img-logo:hover {
+    filter: drop-shadow(0 8px 20px rgba(13, 148, 136, 0.25));
+    transform: translateY(-3px);
 }
 
 #searchbar-container {
@@ -52,62 +82,100 @@ body {
 
 #searchbar-icon {
     margin-top: 20px;
+    color: var(--accent) !important;
+    transition: color var(--transition);
 }
 
 @media only screen and (max-width: 400px) {
-    #home-img-logo {
-        width: 250px;
-    }
-    #searchbar-textfield {
-        width: 200px;
-    }
+    #home-img-logo      { width: 250px; }
+    #searchbar-textfield { width: 200px; }
 }
 
-/*
-    ---- ---- ---- Search page ---- ---- ---- 
-*/
-
+/* ============================================================
+   SEARCH PAGE
+   ============================================================ */
 #header {
-    background-color: #dfdfde;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
 }
 
 #search-page-container {
     overflow: hidden;
     display: inline-block;
-    padding-top: 100px;
+    padding-top: 60px;
     height: 1100px;
     width: 1200px;
 }
 
-/*
-    User Component
-*/
-
+/* ============================================================
+   USER CARD
+   ============================================================ */
 #user-component-container {
-    border-radius: 8px;
-    background-color: #dfdfde;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
     text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
     width: 1200px;
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+/* Teal left-border accent strip */
+#user-component-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    background-color: var(--accent);
+}
+#user-component-container {
+    position: relative;
+    overflow: hidden;
 }
 
 #user-image {
     width: 200px;
     padding: 20px;
-    filter: opacity(70%);
+    filter: opacity(70%) grayscale(10%);
+    border-radius: var(--radius-md);
+    transition: filter var(--transition), transform var(--transition);
+}
+
+#user-image:hover {
+    filter: opacity(100%) grayscale(0%);
+    transform: scale(1.02);
 }
 
 #user-icons-container {
     padding-top: 80px;
     text-align: center;
     width: 400px;
+    color: var(--text-secondary);
+}
+
+#user-icons-container svg {
+    color: var(--accent) !important;
+    transition: color var(--transition), transform var(--transition-fast);
+}
+
+#user-icons-container svg:hover {
+    transform: scale(1.15);
 }
 
 #user-country-image {
     padding-left: 10px;
     width: 40px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
 }
 
 .user-ul {
@@ -116,14 +184,18 @@ body {
 }
 
 .user-li-sub-header {
-    font-size: 12px;
-    color: #4c4c4c;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 #user-span-header {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 700;
-    color: #191919;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
 }
 
 #user-details {
@@ -136,34 +208,38 @@ body {
     float: right;
 }
 
-/*
-    Match History Component
-*/
-
+/* ============================================================
+   MATCH HISTORY CARD
+   ============================================================ */
 #match-component-container {
-    border-radius: 8px;
-    background-color: #dfdfde;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
     height: 800px;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 80px;
+    padding: 10px 40px 80px 40px;
     margin-left: 20px;
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
-/* 
-    Stats Component
-*/
-
+/* ============================================================
+   STATS CARD
+   ============================================================ */
 #stats-component-container {
-    border-radius: 8px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
     height: 800px;
     text-align: left;
-    background-color: #dfdfde;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 80px;
+    padding: 10px 40px 80px 40px;
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .stats-ul {
@@ -171,32 +247,163 @@ body {
 }
 
 .stats-list-heading {
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.stats-sub-heading {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-right: 16px;
 }
 
 .stats-info {
     text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
 }
-/*
-    ---- ---- ---- Error page ---- ---- ---- 
-*/
+
+/* ============================================================
+   ERROR PAGE
+   ============================================================ */
 #error-component-container {
     padding: 8%;
     padding-bottom: 200px;
     text-align: center;
+    color: var(--text-secondary);
 }
 
 #error-img-logo {
     width: 300px;
+    opacity: 0.65;
+    filter: grayscale(20%);
+    transition: opacity var(--transition), filter var(--transition);
 }
 
-/*
-    ---- ---- ---- Footer ---- ---- ---- 
-*/
+#error-img-logo:hover {
+    opacity: 0.85;
+    filter: grayscale(0%);
+}
 
+/* ============================================================
+   FOOTER
+   ============================================================ */
 .footer-container {
     margin-top: 80px;
     margin-bottom: 40px;
     text-align: center;
     font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+/* ============================================================
+   MUI OVERRIDES
+   ============================================================ */
+
+/* DataGrid */
+.MuiDataGrid-root {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    transition: background-color var(--transition) !important;
+}
+
+.MuiDataGrid-columnHeaders {
+    background-color: var(--bg-surface-alt) !important;
+    color: var(--text-muted) !important;
+    border-bottom: 1px solid var(--border) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
+    text-transform: uppercase !important;
+}
+
+.MuiDataGrid-cell {
+    border-bottom: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+}
+
+.MuiDataGrid-row:hover {
+    background-color: var(--accent-subtle) !important;
+    transition: background-color var(--transition-fast) !important;
+}
+
+/* Teal selected sort arrow */
+.MuiDataGrid-sortIcon,
+.MuiDataGrid-menuIconButton {
+    color: var(--accent) !important;
+}
+
+.MuiDataGrid-footerContainer {
+    background-color: var(--bg-surface-alt) !important;
+    border-top: 1px solid var(--border) !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Pagination */
+.MuiTablePagination-root,
+.MuiTablePagination-selectLabel,
+.MuiTablePagination-displayedRows {
+    color: var(--text-secondary) !important;
+}
+
+.MuiIconButton-root {
+    color: var(--text-muted) !important;
+    transition: color var(--transition-fast) !important;
+}
+
+.MuiIconButton-root:hover {
+    color: var(--accent) !important;
+    background-color: var(--accent-subtle) !important;
+}
+
+/* TextField (search bar) */
+.MuiInput-underline:before {
+    border-bottom-color: var(--border) !important;
+}
+
+.MuiInput-underline:after {
+    border-bottom-color: var(--accent) !important;
+}
+
+.MuiInputBase-input {
+    color: var(--text-primary) !important;
+}
+
+.MuiInputLabel-root {
+    color: var(--text-muted) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+    color: var(--accent) !important;
+}
+
+/* Focused AccountCircle icon */
+.MuiFormControl-root:focus-within + #searchbar-icon,
+#searchbar-container:focus-within #searchbar-icon {
+    color: var(--accent-bright) !important;
+}
+
+/* Tooltip */
+.MuiTooltip-tooltip {
+    background-color: var(--bg-surface-alt) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-md) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    border-radius: var(--radius-sm) !important;
+    letter-spacing: 0.02em !important;
 }
