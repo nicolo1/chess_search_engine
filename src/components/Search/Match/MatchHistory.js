@@ -132,10 +132,9 @@ const MatchHistory = ({ searchedUser, matchHistory }) => {
                         }}
                         // event for when user is clicked
                         onCellClick={(e) => {
-                            setSearchParams({
-                                q: e.row[e.field],
-                            });
-                            window.location.reload();
+                            if (e.field === "white" || e.field === "black") {
+                                setSearchParams({ q: e.row[e.field] });
+                            }
                         }}
                     />
                 </Box>

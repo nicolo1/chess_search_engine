@@ -2,21 +2,17 @@
     ---- ---- Date helper functions ---- ----
 */
 
-const today = new Date();
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-// get month formatted as 01, 02, 03, etc.
+// app.service.js — remove the module-level `today`
 export function getMonth() {
-    const month = today.getMonth() + 1;
-    switch (true) {
-        case (month < 10):
-            return `0${month}`;
-        default:
-            return `${month}`;
-    }
+    const month = new Date().getMonth() + 1;
+    return String(month).padStart(2, '0');
 }
 
-export function getYear() { return `${today.getFullYear()}`; }
+export function getYear() {
+    return String(new Date().getFullYear());
+}
 
 // get date as string from timestamp
 export function getDateStringify(timestamp) {

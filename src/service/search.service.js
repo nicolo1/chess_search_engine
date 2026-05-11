@@ -57,14 +57,12 @@ export const getUserStats = async (searchedUser) => {
             // user does not exist, error
             return err.response.data;
         });
-    console.log(res);
     return res;
 };
 
 export const isValidString = (text) => {
     // regex captures everything EXCEPT alphabetical + numerical characters
-    const regex = new RegExp("[^a-z^A-Z^0-9]");
-    console.log(text == "" || !regex.test(text));
+    const regex = new RegExp("[^a-zA-Z0-9]");
 
     return text == "" || !regex.test(text);
 };

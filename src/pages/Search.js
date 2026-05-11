@@ -16,7 +16,7 @@ const Search = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const searchedUser = searchParams.get("q"); // user input
     const [user, setUser] = useState(""); // user object from API
-    const [matchHistory, setMatchHisory] = useState("");
+    const [matchHistory, setMatchHistory] = useState("");
     const [stats, setStats] = useState("");
     const [error, setError] = useState(false);
 
@@ -27,14 +27,18 @@ const Search = () => {
             // only fetch for match history and stats if no error
             if (!user.message) {
                 setUser(user);
-                setMatchHisory(await getUserMatchHistory(searchedUser));
-                setStats(await getUserStats(searchedUser));
+                const [matchHistory, stats] = await Promise.all([
+                    getUserMatchHistory(searchedUser),
+                    getUserStats(searchedUser)
+                ]);
+                setMatchHistory(matchHistory);
+                setStats(stats);
                 setError(false);
             } else {
                 setError(true);
             }
         })();
-    }, []);
+    }, [searchedUser]);
 
     return user ? (
         <>

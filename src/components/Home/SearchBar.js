@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -7,18 +7,8 @@ import TextField from "@mui/material/TextField";
 import { isValidString } from "../../service/search.service";
 
 const SearchBar = ({ size = 400 }) => {
-    const [error, setError] = useState(false);
     const [text, setText] = useState("");
-
-    useEffect(() => {
-        console.log(text);
-
-        if (isValidString(text)) {
-            setError(false);
-        } else {
-            setError(true);
-        }
-    }, [text]);
+    const error = !isValidString(text);
 
     return (
         <form action="/search">
