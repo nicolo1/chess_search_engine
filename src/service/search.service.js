@@ -6,14 +6,12 @@ import { getMonth, getYear } from "./app.service";
 */
 
 const prefix = `https://api.chess.com/pub/player`;
-const matchHistoryEndpoint = `games/${getYear()}/${getMonth()}`;
 const statsEndpoint = `stats`;
 
 // gets match history of a given user
 export const getUserMatchHistory = async (searchedUser) => {
-    const url = `${prefix}/${searchedUser}/${matchHistoryEndpoint}`;
-
-    const res = axios
+    const url = `${prefix}/${searchedUser}/games/${getYear()}/${getMonth()}`;
+    const res = await axios
         .get(url)
         .then(function (res) {
             // cases:
@@ -25,10 +23,11 @@ export const getUserMatchHistory = async (searchedUser) => {
             // user does not exist, error
             return err.response.data;
         });
+    console.log(res)
     return res;
 };
 
-// gets user profile information of a given user
+// gets profile information of a given user
 export const getUserProfile = async (searchedUser) => {
     const url = `${prefix}/${searchedUser}`;
 
@@ -44,7 +43,7 @@ export const getUserProfile = async (searchedUser) => {
     return res;
 };
 
-// gets user profile information of a given user
+// gets stats of a given user
 export const getUserStats = async (searchedUser) => {
     const url = `${prefix}/${searchedUser}/${statsEndpoint}`;
 

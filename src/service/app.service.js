@@ -4,7 +4,6 @@
 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-// app.service.js — remove the module-level `today`
 export function getMonth() {
     const month = new Date().getMonth() + 1;
     return String(month).padStart(2, '0');
