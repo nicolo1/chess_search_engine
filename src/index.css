@@ -1,15 +1,114 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap");
+
+/* ============================================================
+   DESIGN TOKENS — Light mode
+   ============================================================ */
+:root {
+    /* Backgrounds — true neutral grays, no blue tint */
+    --bg-base:        #f5f5f5;
+    --bg-surface:     #ffffff;
+    --bg-surface-alt: #ebebeb;
+
+    /* Text */
+    --text-primary:   #111111;
+    --text-secondary: #555555;
+    --text-muted:     #999999;
+
+    /* Accent — teal, pops on neutral gray */
+    --accent:         #0d9488;
+    --accent-bright:  #14b8a6;
+    --accent-hover:   #0f766e;
+    --accent-subtle:  #f0fdfb;
+
+    /* Semantic */
+    --color-success:  #16a34a;
+    --color-danger:   #dc2626;
+    --color-info:     #0284c7;
+
+    /* Borders */
+    --border:         #e0e0e0;
+    --border-subtle:  #f0f0f0;
+
+    /* Elevation */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.06);
+
+    /* Shape */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    /* Motion */
+    --transition-fast: 150ms ease;
+    --transition:      220ms ease;
+    --transition-slow: 350ms ease;
+
+    /* Home ambient — barely-there warm glow, teal hint at top */
+    --home-gradient: radial-gradient(ellipse at 50% -20%, rgba(13, 148, 136, 0.10) 0%, var(--bg-base) 60%);
+}
+
+/* ============================================================
+   DESIGN TOKENS — Dark mode  (follows OS preference)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-base:        #222222;
+        --bg-surface:     #2c2c2c;
+        --bg-surface-alt: #363636;
+
+        --text-primary:   #f0f0f0;
+        --text-secondary: #ababab;
+        --text-muted:     #707070;
+
+        /* Brighter teal so it really pops on mid-dark */
+--accent:        hsl(200, 80%, 32%);
+--accent-bright: hsl(200, 72%, 46%);
+--accent-hover:  hsl(200, 88%, 24%);
+--accent-subtle: #222222;
+
+        --color-success:  #4ade80;
+        --color-danger:   #f87171;
+        --color-info:     #38bdf8;
+
+        --border:         #404040;
+        --border-subtle:  #333333;
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+        --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
+
+        --home-gradient: radial-gradient(ellipse at 50% -20%, rgba(45, 212, 191, 0.08) 0%, var(--bg-base) 60%);
+    }
+}
+
+/* ============================================================
+   BASE RESET & TYPOGRAPHY
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    line-height: 1.6;
+    transition:
+        background-color var(--transition),
+        color var(--transition);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
