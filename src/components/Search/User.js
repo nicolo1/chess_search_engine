@@ -11,7 +11,6 @@ import PeopleIcon from "@mui/icons-material/People";
 import SearchBar from "../Home/SearchBar";
 import Tooltip from "@mui/material/Tooltip";
 
-// TODO check line 19 : {user.last_online ? '' : ''} <-- necessary?
 const User = ({ user }) => {
     return (
         <div id="user-component-container">

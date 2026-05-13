@@ -14,7 +14,7 @@ const columns = [
         sortable: false,
         disableColumnMenu: true,
         headerAlign: "center",
-        width: "200",
+        width: 200,
     },
     {
         field: "black",
@@ -24,7 +24,7 @@ const columns = [
         sortable: false,
         disableColumnMenu: true,
         headerAlign: "center",
-        width: "200",
+        width: 200,
     },
     {
         field: "result",
@@ -42,7 +42,7 @@ const columns = [
         disableColumnMenu: true,
         headerAlign: "center",
         align: "center",
-        width: "150",
+        width: 150,
     },
     {
         field: "date",
@@ -55,7 +55,7 @@ const columns = [
         headerAlign: "center",
         headerClassName: "match-history-header",
         align: "center",
-        width: "200",
+        width: 200,
     },
 ];
 
